@@ -40,6 +40,11 @@ header.hero::after{content:"";display:block;width:64px;height:3px;margin:16px au
 .notice[open] summary .chev{transform:rotate(180deg);}
 .notice .body{padding:2px 20px 18px;font-size:.94rem;color:var(--ink-soft);}
 .notice .body li{margin:.5em 0;} .notice .body b{color:var(--chili-d);}
+.notice .body ul{margin:0 0 4px;padding-left:1.1em;}
+.notice .body h4.hl{display:inline-block;margin:16px 0 6px;font-size:1rem;font-weight:800;color:var(--ink);
+  background:linear-gradient(180deg,transparent 55%,#F6E27A 55%);padding:0 3px;}
+.notice .body h4.hl:first-child{margin-top:2px;}
+.notice .body .warn{color:var(--chili-d);font-weight:700;}
 .cat{margin:0 auto 30px;}
 .cat-head{display:flex;align-items:baseline;gap:12px;margin:0 0 12px;}
 .cat-head h2{font-family:"LXGW WenKai TC","Noto Serif TC",serif;font-size:1.5rem;margin:0;font-weight:700;}
@@ -89,6 +94,9 @@ header.hero::after{content:"";display:block;width:64px;height:3px;margin:16px au
 .field select{appearance:auto;}
 .field .err{color:var(--chili);font-size:.85rem;margin-top:5px;display:none;}
 .field.invalid input,.field.invalid textarea,.field.invalid select{border-color:var(--chili);background:#FCEDEA;}
+.paynote{display:none;margin-top:9px;padding:11px 13px;background:#FBEEDD;border:1px dashed var(--gold);border-radius:10px;font-size:.9rem;color:var(--ink);line-height:1.7;}
+.paynote.show{display:block;}
+.paynote b{color:var(--chili-d);}
 .field.invalid .err{display:block;}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
 .btn-submit{width:100%;margin-top:6px;padding:16px;font-size:1.15rem;font-weight:900;color:#fff;background:var(--chili);border:none;border-radius:13px;cursor:pointer;font-family:inherit;letter-spacing:.06em;transition:.15s;box-shadow:0 4px 0 var(--chili-d);}
@@ -133,12 +141,45 @@ footer{text-align:center;color:var(--ink-soft);font-size:.82rem;padding:28px 18p
   <div class="legend"><span><b class="veg su">素</b> 素食</span><span><b class="veg hun">葷</b> 葷食</span></div>
   <details class="notice">
     <summary>📋 訂購前必看・購物須知 <span class="chev">▾</span></summary>
-    <div class="body"><ul>
-      <li><b>醬菜類：</b>以「包」計，每包一斤（600g）真空包裝；<b>菜皮無法真空</b>。</li>
-      <li><b>香腸類：</b>以「斤」計，純手工製作、每條重量略有不同，會依訂購斤數平均分裝。</li>
-      <li><b>臘肉：</b>以「條」計，每條約一斤、實際秤重。</li>
-      <li><b>金額：</b>頁面售價<b>僅供參考</b>、不計算總額；店家收到訂單後會依實際重量確認費用再與你告知。</li>
-    </ul></div>
+    <div class="body">
+      <h4 class="hl">商品規格</h4>
+      <ul>
+        <li><b>醬菜類：</b>以「包」計，每包一斤（600g）真空包裝；<b>菜皮無法真空</b>。</li>
+        <li><b>香腸類：</b>以「斤」計，純手工製作、每條重量略有不同，會依訂購斤數平均分裝。</li>
+        <li><b>臘肉：</b>以「條」計，每條約一斤、實際秤重。</li>
+        <li><b>金額：</b>頁面售價<b>僅供參考</b>、不計算總額；店家收到訂單後會依實際重量確認費用再與你告知。</li>
+      </ul>
+      <h4 class="hl">付款方式</h4>
+      <ul>
+        <li>◎ATM 轉帳／線上轉帳／銀行匯款</li>
+        <li>匯款帳號：郵局局號 <b>700</b>　帳號 <b>007-1001-087-0966</b></li>
+        <li>◎貨到付款<span class="warn">（冷藏商品另外加收 30～90 元代收手續費）</span></li>
+      </ul>
+      <h4 class="hl">寄件宅配</h4>
+      <ul>
+        <li>◎轉帳／匯款：請於轉帳／匯款過後，來電或 FB 訊息告知，確認無誤並且商品無缺貨情形後將會安排出貨！</li>
+        <li>◎貨到付款：訂購商品無缺貨情形將進行出貨。</li>
+        <li>出貨後無遇到特殊節日（EX：過年／端午）將於 1～2 天內到貨。</li>
+      </ul>
+      <h4 class="hl">訂貨方式</h4>
+      <ul>
+        <li>◎來電訂購</li>
+        <li>◎粉絲專頁訊息訂購</li>
+        <li>◎LINE 官方訂購</li>
+      </ul>
+      <h4 class="hl">商品包材</h4>
+      <ul>
+        <li>◎香腸與菜類皆為真空包裝，無罐裝！</li>
+      </ul>
+      <h4 class="hl">運費／免運</h4>
+      <ul>
+        <li>◎以訂購商品數量所放的箱子大小來收費，訂購商品時我們會告知！</li>
+        <li>◎菜類商品採冷藏寄送，滿 3000 免運。</li>
+        <li>◎肉類商品採冷凍寄送，滿 8000 免運。</li>
+        <li>◎若有需混搭商品，必須達一達免運標準。EX：菜類商品購買滿 3000，則可再加購肉類商品一併寄送無需增加運費。</li>
+        <li>◎豆腐乳採常溫寄送，無免運。</li>
+      </ul>
+    </div>
   </details>
   <div id="menu"></div>
   <section class="formzone" id="form">
@@ -158,7 +199,9 @@ footer{text-align:center;color:var(--ink-soft);font-size:.82rem;padding:28px 18p
         <option value="">請選擇付款方式</option>
         <option value="貨到付款（需加30～90元）">貨到付款（需加30～90元）</option>
         <option value="匯款">匯款</option>
-      </select><div class="err">請選擇付款方式</div></div>
+      </select><div class="err">請選擇付款方式</div>
+      <div class="paynote" id="pay-note">💰 匯款帳號：郵局局號 <b>700</b>　帳號 <b>007-1001-087-0966</b><br>匯款後請來電或 FB 訊息告知，以便確認出貨。</div>
+    </div>
     <button class="btn-submit" id="btn-submit">送出訂單</button>
   </section>
 </div>
@@ -311,6 +354,9 @@ function buildOrderText(name,phone,addr,pay){
   return s;
 }
 function markInvalid(f,bad){ document.getElementById(f).classList.toggle("invalid",bad); }
+document.getElementById("in-pay").onchange=function(){
+  document.getElementById("pay-note").classList.toggle("show", this.value==="匯款");
+};
 document.getElementById("btn-submit").onclick=async ()=>{
   const name=document.getElementById("in-name").value.trim();
   const phone=document.getElementById("in-phone").value.trim();
